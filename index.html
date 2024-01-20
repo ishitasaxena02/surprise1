@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+    html, body {
+      margin: 0;
+      overflow: hidden; /* Prevent scrolling */
+    }
+    body {
+      background-image: url('4871703.jpg'); 
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #popup {
+    background: repeating-radial-gradient(#FF69B4,#ed0e85); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+    
+  }
+
+  .propose {
+    font-size: 2em;
+    color: #f9c5ee; /* Hot pink */
+    font-weight: bold;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: larger;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-style: italic;
+    font-size: larger;
+    color: white;
+    background: linear-gradient(to right, #f9c5ee, #f26db0);
+    box-shadow: 0 0 2px #ffffff;
+  }
+
+    #noButton {
+      position: absolute;
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Smooth transition with cubic-bezier easing */
+    }
+
+  </style>
+  <title>Proposal Site</title>
+</head>
+<body>
+  <div id="popup">
+    <p class="propose">Will You Be My Valentine?</p>
+    <button onclick="openNextPage()">Yes</button>
+    <button id="noButton" onmouseover="moveNoButton()">No</button>
+  </div>
+
+  <script>
+    function openNextPage() {
+      // Redirect to the next page or perform desired action
+      window.location.href = 'next-page.html'; // Replace 'next-page.html' with the actual next page
+    }
+
+    function moveNoButton() {
+        var noButton = document.getElementById('noButton');
+        var buttonRect = noButton.getBoundingClientRect();
+        var newX = Math.floor(Math.random() * window.innerWidth) - buttonRect.width;
+        var newY = Math.floor(Math.random() * window.innerHeight) - buttonRect.height;
+        newX /= 4;
+        newY /= 4;
+        noButton.style.transform = `translate(${newX}px, ${newY}px)`;
+    }
+  </script>
+</body>
+</html>
